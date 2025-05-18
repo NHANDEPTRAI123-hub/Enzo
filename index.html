@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="invite-members.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Enzo</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><i>📋</i> <span>Bảng</span></li>
+                <li><i>👤</i> <span>Tài khoản</span></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="project-selector">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle">
+                            <span id="current-project">Chưa có dự án</span>
+                            <span class="dropdown-icon">▼</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item create-project">
+                                <span class="plus-icon">+</span> Tạo dự án mới
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="user-profile">
+                    <button class="btn btn-secondary" id="create-task-btn">Tạo</button>
+                    <div class="user-avatar" id="user-avatar"></div>
+                    
+                </div>
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1>Chưa có dự án</h1>
+                <div class="project-nav">
+                    <div class="project-nav-item active" data-tab="board">Bảng Kanban</div>
+                    <div class="project-nav-item" data-tab="list">Danh sách</div>
+                    <div class="project-nav-item" data-tab="members">Thành viên</div>
+                    <div class="project-nav-item" data-tab="charts">Biểu đồ</div>
+                    <div class="project-nav-item" data-tab="settings">Cài đặt dự án</div>
+                    <div class="project-nav-item" data-tab="history">Lịch sử</div>
+                </div>
+            </div>
+
+            <!-- Board Tab -->
+            <div id="board" class="tab-content active">
+                <div class="board-container">
+                    <div class="board">
+                        <!-- To Do Column -->
+                        <div class="column">
+                            <div class="column-header">
+                                <span>Cần làm</span>
+                                <span class="column-count">0</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be added dynamically -->
+                            </div>
+                            <div class="add-task-btn">+ Thêm công việc</div>
+                        </div>
+
+                        <!-- In Progress Column -->
+                        <div class="column">
+                            <div class="column-header">
+                                <span>Đang thực hiện</span>
+                                <span class="column-count">0</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be added dynamically -->
+                            </div>
+                            <div class="add-task-btn">+ Thêm công việc</div>
+                        </div>
+
+                        <!-- Review Column -->
+                        <div class="column">
+                            <div class="column-header">
+                                <span>Đang kiểm tra</span>
+                                <span class="column-count">0</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be added dynamically -->
+                            </div>
+                            <div class="add-task-btn">+ Thêm công việc</div>
+                        </div>
+
+                        <!-- Done Column -->
+                        <div class="column">
+                            <div class="column-header">
+                                <span>Hoàn thành</span>
+                                <span class="column-count">0</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be added dynamically -->
+                            </div>
+                            <div class="add-task-btn">+ Thêm công việc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List Tab -->
+            <div id="list" class="tab-content">
+                <div class="list-container">
+                    <div class="list-filters">
+                        <button class="btn btn-secondary">Tất cả nhiệm vụ</button>
+                        <button class="btn btn-secondary">Lọc</button>
+                        <button class="btn btn-secondary">Sắp xếp</button>
+                    </div>
+                    <div class="list-header">
+                        <div>Mã</div>
+                        <div>Tiêu đề</div>
+                        <div>Trạng thái</div>
+                        <div>Người thực hiện</div>
+                        <div>Ưu tiên</div>
+                    </div>
+                    <div class="list-body">
+                        <!-- Tasks will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members Tab -->
+            <div id="members" class="tab-content">
+                <div class="members-container">
+                    <div class="members-header">
+                        <h2>Thành viên dự án</h2>
+                        <button class="btn btn-primary" id="invite-members-btn-tab">
+                            <i>👥</i> Mời thành viên
+                        </button>
+                    </div>
+                    <div class="members-list">
+                        <!-- Members will be added dynamically -->
+                    </div>
+                    <div class="mobile-invite-btn">
+                        <button class="btn btn-primary" id="invite-members-btn-mobile">
+                            <i>👥</i> Mời thành viên
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Tab -->
+            <div id="charts" class="tab-content">
+                <div class="charts-container">
+                    <div class="charts-header">
+                        <h2>Biểu đồ thống kê</h2>
+                       
+                    </div>
+                    <div class="charts-content">
+                        <div class="chart-row">
+                            <div class="chart-card">
+                                <h3>Tổng quan trạng thái</h3>
+                                <p class="chart-description">Tổng quan về trạng thái các công việc trong dự án</p>
+                                <div class="status-chart">
+                                    <div class="donut-chart-container">
+                                        <div class="donut-chart">
+                                            <div class="donut-chart-inner">
+                                                <span class="donut-chart-number">0</span>
+                                                <span class="donut-chart-label">Tổng công việc</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-color todo"></span>
+                                            <span class="legend-text">Cần làm: 0</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color inprogress"></span>
+                                            <span class="legend-text">Đang thực hiện: 0</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color review"></span>
+                                            <span class="legend-text">Đang kiểm tra: 0</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color done"></span>
+                                            <span class="legend-text">Hoàn thành: 0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Phân bổ công việc</h3>
+                                <p class="chart-description">Số lượng công việc được phân công cho từng thành viên</p>
+                                <div class="member-workload">
+                                    <!-- Workload items will be added dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-card">
+                                <h3>Tiến độ dự án</h3>
+                                <p class="chart-description">Tỷ lệ hoàn thành công việc trong dự án</p>
+                                <div class="progress-chart">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-percentage">0% hoàn thành</span>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <div class="progress-stat-item">
+                                            <span class="progress-stat-number">0</span>
+                                            <span class="progress-stat-label">Tổng số</span>
+                                        </div>
+                                        <div class="progress-stat-item">
+                                            <span class="progress-stat-number">0</span>
+                                            <span class="progress-stat-label">Hoàn thành</span>
+                                        </div>
+                                        <div class="progress-stat-item">
+                                            <span class="progress-stat-number">0</span>
+                                            <span class="progress-stat-label">Còn lại</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Phân bổ ưu tiên</h3>
+                                <p class="chart-description">Phân loại công việc theo mức độ ưu tiên</p>
+                                <div class="priority-chart">
+                                    <div class="priority-bars">
+                                        <div class="priority-bar-item">
+                                            <div class="priority-label">Cao</div>
+                                            <div class="priority-bar-container">
+                                                <div class="priority-bar high" style="width: 0%"></div>
+                                                <span class="priority-count">0 công việc</span>
+                                            </div>
+                                        </div>
+                                        <div class="priority-bar-item">
+                                            <div class="priority-label">Trung bình</div>
+                                            <div class="priority-bar-container">
+                                                <div class="priority-bar medium" style="width: 0%"></div>
+                                                <span class="priority-count">0 công việc</span>
+                                            </div>
+                                        </div>
+                                        <div class="priority-bar-item">
+                                            <div class="priority-label">Thấp</div>
+                                            <div class="priority-bar-container">
+                                                <div class="priority-bar low" style="width: 0%"></div>
+                                                <span class="priority-count">0 công việc</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                         <button class="btn btn-primary" id="export-report-btn">Xuất báo cáo</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <div class="settings-container">
+                    <div class="settings-header">
+                        <h2>Cài đặt dự án</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="settings-section">
+                            <h3>Thông tin dự án</h3>
+                            <div class="form-group">
+                                <label for="project-name-edit">Tên dự án</label>
+                                <input type="text" id="project-name-edit" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-key-edit">Mã dự án</label>
+                                <input type="text" id="project-key-edit" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description-edit">Mô tả</label>
+                                <textarea id="project-description-edit"></textarea>
+                            </div>
+                            <button class="btn btn-primary">Cập nhật thông tin</button>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Phân quyền</h3>
+                            <div class="permission-setting">
+                                <div class="permission-header">
+                                    <h4>Quyền thêm thành viên</h4>
+                                    <p>Ai có thể mời thêm thành viên vào dự án</p>
+                                </div>
+                                <div class="permission-options">
+                                    <div class="permission-option">
+                                        <input type="radio" id="member-permission-admin" name="member-permission" checked>
+                                        <label for="member-permission-admin">Chỉ quản trị viên</label>
+                                    </div>
+                                    <div class="permission-option">
+                                        <input type="radio" id="member-permission-all" name="member-permission">
+                                        <label for="member-permission-all">Tất cả thành viên</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="permission-setting">
+                                <div class="permission-header">
+                                    <h4>Quyền tạo công việc</h4>
+                                    <p>Ai có thể tạo công việc mới trong dự án</p>
+                                </div>
+                                <div class="permission-options">
+                                    <div class="permission-option">
+                                        <input type="radio" id="task-permission-admin" name="task-permission">
+                                        <label for="task-permission-admin">Chỉ quản trị viên</label>
+                                    </div>
+                                    <div class="permission-option">
+                                        <input type="radio" id="task-permission-all" name="task-permission" checked>
+                                        <label for="task-permission-all">Tất cả thành viên</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="permission-setting">
+                                <div class="permission-header">
+                                    <h4>Quyền chỉnh sửa công việc</h4>
+                                    <p>Ai có thể chỉnh sửa thông tin công việc</p>
+                                </div>
+                                <div class="permission-options">
+                                    <div class="permission-option">
+                                        <input type="radio" id="edit-permission-admin" name="edit-permission">
+                                        <label for="edit-permission-admin">Chỉ quản trị viên</label>
+                                    </div>
+                                    <div class="permission-option">
+                                        <input type="radio" id="edit-permission-creator" name="edit-permission">
+                                        <label for="edit-permission-creator">Người tạo và quản trị viên</label>
+                                    </div>
+                                    <div class="permission-option">
+                                        <input type="radio" id="edit-permission-all" name="edit-permission" checked>
+                                        <label for="edit-permission-all">Tất cả thành viên</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary">Lưu cài đặt</button>
+                        </div>
+
+                        <div class="settings-section danger-zone">
+                            <h3>Vùng nguy hiểm</h3>
+                            <div class="danger-action">
+                                <div>
+                                    <h4>Xóa dự án</h4>
+                                    <p>Hành động này không thể hoàn tác. Tất cả dữ liệu dự án sẽ bị xóa vĩnh viễn.</p>
+                                </div>
+                                <button class="btn btn-danger">Xóa dự án</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Tab -->
+            <div id="account" class="tab-content">
+                <div class="account-container">
+                    <div class="account-header">
+                        <h1>Thông tin tài khoản</h1>
+                    </div>
+                    <div class="account-content">
+                        <div class="account-profile">
+                            <div class="account-avatar-large" id="account-avatar"></div>
+                            <div class="account-info">
+                                <h2 id="account-name"></h2>
+                                <p id="account-email"></p>
+                                <p id="account-role">Thành viên</p>
+                            </div>
+                        </div>
+                        
+                        <div class="account-sections">
+                            <div class="account-section">
+                                <h3>Thông tin cá nhân</h3>
+                                <div class="form-group">
+                                    <label for="account-fullname">Họ và tên</label>
+                                    <input type="text" id="account-fullname" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="account-email-edit">Email</label>
+                                    <input type="email" id="account-email-edit" value="">
+                                </div>
+                                <button class="btn btn-primary">Cập nhật thông tin</button>
+                            </div>
+                            
+                            <div class="account-section">
+                                <h3>Đổi mật khẩu</h3>
+                                <div class="form-group">
+                                    <label for="current-password">Mật khẩu hiện tại</label>
+                                    <input type="password" id="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">Mật khẩu mới</label>
+                                    <input type="password" id="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-new-password">Xác nhận mật khẩu mới</label>
+                                    <input type="password" id="confirm-new-password">
+                                </div>
+                                <button class="btn btn-primary">Đổi mật khẩu</button>
+                            </div>
+                            
+                            <div class="account-section">
+                                <h3>Dự án của tôi</h3>
+                                <div class="account-projects">
+                                    <!-- Projects will be added dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="account-section">
+                                <h3>Tài khoản</h3>
+                                <p class="account-description">Đăng xuất khỏi tài khoản của bạn</p>
+                                <button class="btn btn-danger" id="account-logout-btn">Đăng xuất</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history" class="tab-content">
+                <div class="history-container">
+                    <h2>Lịch sử thay đổi</h2>
+                    <div class="history-list">
+                        <!-- History items will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Task Modal -->
+    <div class="modal" id="create-task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tạo công việc mới</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="task-title">Tiêu đề công việc</label>
+                    <input type="text" id="task-title" placeholder="Nhập tiêu đề công việc">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-status">Trạng thái</label>
+                        <select id="task-status">
+                            <option value="todo">Cần làm</option>
+                            <option value="inprogress">Đang thực hiện</option>
+                            <option value="review">Đang kiểm tra</option>
+                            <option value="done">Hoàn thành</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Mức độ ưu tiên</label>
+                        <select id="task-priority">
+                            <option value="low">Thấp</option>
+                            <option value="medium" selected>Trung bình</option>
+                            <option value="high">Cao</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Cập nhật phần dropdown người thực hiện trong modal tạo task -->
+                <div class="form-group">
+                  <label for="task-assignee">Người thực hiện</label>
+                  <select id="task-assignee">
+                    <!-- Các option sẽ được tạo động từ danh sách thành viên dự án -->
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Mô tả công việc</label>
+                    <textarea id="task-description" placeholder="Nhập mô tả chi tiết về công việc"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-due-date">Ngày hạn</label>
+                    <input type="date" id="task-due-date">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-task">Hủy</button>
+                <button class="btn btn-primary" id="save-task">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Project Modal -->
+    <div class="modal" id="create-project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tạo dự án mới</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="project-name">Tên dự án</label>
+                    <input type="text" id="project-name" placeholder="Nhập tên dự án">
+                </div>
+                <div class="form-group">
+                    <label for="project-key">Mã dự án</label>
+                    <input type="text" id="project-key" placeholder="VD: PROJ, WEB, APP">
+                </div>
+                <div class="form-group">
+                    <label for="project-description">Mô tả</label>
+                    <textarea id="project-description" placeholder="Nhập mô tả chi tiết về dự án"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="project-lead">Người quản lý</label>
+                    <select id="project-lead">
+                        <!-- Options will be added dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-project">Hủy</button>
+                <button class="btn btn-primary" id="save-project">Tạo dự án</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invite Members Modal -->
+    <div class="modal" id="invite-members-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mời thành viên vào dự án</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="invite-email">Email</label>
+                    <input type="email" id="invite-email" placeholder="Nhập email người dùng" oninput="searchUsers()">
+                </div>
+                <div class="form-group">
+                    <label for="invite-role">Vai trò</label>
+                    <select id="invite-role">
+                        <option value="member">Thành viên</option>
+                        <option value="admin">Quản trị viên</option>
+                    </select>
+                </div>
+                <div id="search-results" class="search-results">
+                    <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-invite">Hủy</button>
+                <button class="btn btn-primary" id="send-invite">Gửi lời mời</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Detail Modal -->
+    <div class="modal" id="task-detail-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="detail-task-title" contenteditable="true">Chi tiết công việc</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="task-detail-header">
+            <div class="task-detail-id" id="detail-task-id"></div>
+            <div class="task-detail-status" id="detail-task-status">
+              <span class="status-badge todo">Cần làm</span>
+            </div>
+          </div>
+          <div class="task-detail-section">
+            <h3>Mô tả</h3>
+            <div class="task-detail-description" id="detail-task-description" contenteditable="true">
+              Chưa có mô tả cho công việc này.
+            </div>
+          </div>
+          <div class="task-detail-section">
+            <h3>Thông tin</h3>
+            <div class="task-detail-info">
+              <div class="detail-info-item">
+                <div class="detail-info-label">Người thực hiện:</div>
+                <div class="detail-info-value" id="detail-task-assignee"></div>
+              </div>
+              <div class="detail-info-item">
+                <div class="detail-info-label">Mức độ ưu tiên:</div>
+                <div class="detail-info-value">
+                  <select id="detail-task-priority">
+                    <option value="low">Thấp</option>
+                    <option value="medium">Trung bình</option>
+                    <option value="high">Cao</option>
+                  </select>
+                </div>
+              </div>
+              <div class="detail-info-item">
+                <div class="detail-info-label">Ngày tạo:</div>
+                <div class="detail-info-value" id="detail-task-created"></div>
+              </div>
+              <div class="detail-info-item">
+                <div class="detail-info-label">Ngày hạn:</div>
+                <div class="detail-info-value">
+                  <input type="datetime-local" id="detail-task-due-date">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="close-detail">Đóng</button>
+          <button class="btn btn-primary" id="edit-task">Lưu</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

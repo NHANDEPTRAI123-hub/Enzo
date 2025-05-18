@@ -1,0 +1,28 @@
+<div class="modal" id="invite-members-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Mời thành viên vào dự án</h2>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="invite-email">Email</label>
+                <input type="email" id="invite-email" placeholder="Nhập email người dùng" oninput="searchUsers()">
+            </div>
+            <div class="form-group">
+                <label for="invite-role">Vai trò</label>
+                <select id="invite-role">
+                    <option value="member">Thành viên</option>
+                    <option value="admin">Quản trị viên</option>
+                </select>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" id="cancel-invite">Hủy</button>
+            <button class="btn btn-primary" id="send-invite">Gửi lời mời</button>
+        </div>
+    </div>
+</div>
