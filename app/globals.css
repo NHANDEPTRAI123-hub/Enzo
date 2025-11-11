@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +19,66 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(90deg, #FBF6FF 36%, #FFFFFF 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
 }
+
+h1 {
+  @apply text-5xl font-poppins;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  @apply text-4xl font-poppins;
+}
+
+h3 {
+  @apply text-3xl font-poppins;
+  line-height: 1.3;
+}
+
+p {
+  @apply text-lg font-poppins;
+  line-height: 1.5;
+}
+
+.text-gold-600 {
+  color: #FCD462;
+}
+
+.text-purple-600 {
+  color: #7F00FF;
+}
+
+.border-purple-600 {
+  border-color: #7F00FF;
+}
+
+.bg-purple-600 {
+  background-color: #7F00FF;
+}
+
+.hover\:bg-purple-50:hover {
+  background-color: #f9f5ff;
+}
+
+.hover\:bg-purple-700:hover {
+  background-color: #6b00cc;
+}
+
+.text-black {
+  color: #000000;
+}
+
+@layer components {
+  .hero {
+    @apply flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+  }
+
+  .features {
+    @apply flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+  }
+}
+
