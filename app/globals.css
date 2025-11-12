@@ -32,7 +32,6 @@ h1 {
 
 h2 {
   @apply text-2xl sm:text-3xl lg:text-4xl font-poppins;
-  @apply mb-1 sm:mb-6 lg:mb-8;
   font-weight: 600;
 }
 
@@ -81,5 +80,9 @@ p {
 
   .features {
     @apply flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-30;
+  }
+
+  .guide {
+    @apply flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
   }
 }

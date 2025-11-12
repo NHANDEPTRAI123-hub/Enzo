@@ -65,7 +65,7 @@ const FeatureCard = ({
         {title}
       </h3>
       <p
-        className={`text-sm sm:text-base relative z-10 flex-grow ${
+        className={`text-sm sm:text-base relative z-10 grow ${
           isWhiteText ? "text-white" : ""
         }`}
       >
