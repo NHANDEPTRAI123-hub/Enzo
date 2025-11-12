@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from '@/components/navbar';
-import GetStartedButton from '@/components/GetStartedButton';
-import TermsServiceButton from '@/components/TermsServiceButton';
-import FeatureCard from '@/components/FeatureCard';
+import React from "react";
+import Navbar from "@/components/navbar";
+import GetStartedButton from "@/components/GetStartedButton";
+import TermsServiceButton from "@/components/TermsServiceButton";
+import FeatureCard from "@/components/FeatureCard";
 
 const Page = () => {
   return (
@@ -10,8 +10,15 @@ const Page = () => {
       <Navbar />
       <section className="hero">
         <div className="flex flex-col gap-2 sm:gap-3 flex-1">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl"><span className="text-purple-600">Unleash</span> Your Project Potential With Enzo</h1>
-          <p className="text-base sm:text-lg lg:text-xl">Empower young creators to transform ideas into successful projects. Collaborate, manage, and grow with our intuitive platform designed for emerging talent</p>
+          <h1>
+            <span className="text-purple-600">Unleash</span> Your Project
+            Potential With Enzo
+          </h1>
+          <p className="text-base sm:text-lg lg:text-xl">
+            Empower young creators to transform ideas into successful projects.
+            Collaborate, manage, and grow with our intuitive platform designed
+            for emerging talent
+          </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-3">
             <TermsServiceButton />
             <GetStartedButton />
@@ -23,7 +30,7 @@ const Page = () => {
       </section>
 
       <section className="features">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center font-semibold">
+        <h2 className="text-left">
           Our <span className="text-purple-600">Interactive</span> Features
         </h2>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-between">
@@ -31,31 +38,44 @@ const Page = () => {
             backgroundColor="#E5CCFF"
             title={
               <>
-                Create & Manage<br />
+                Create & Manage
+                <br />
                 <span className="text-purple-600">Project</span>
               </>
             }
-            description="Work together seamlessly with your team in real-time collaboration environments designed for maximum productivity."
+            description="Create and manage your project easily and funnily"
+            svgIcon="/ui/circle.svg"
+            mainIcon="/ui/book.svg"
+            buttonColor="#F2E5FF"
           />
           <FeatureCard
             backgroundColor="#7F00FF"
             title={
               <>
-                Share & Express<br />
+                Share & Express
+                <br />
                 <span className="text-gold-600">Community</span>
               </>
             }
-            description="Track your progress, manage tasks, and stay organized with our intuitive project management tools."
+            description="Share and post your idea to people around the world"
+            svgIcon="/ui/oval.svg"
+            mainIcon="/ui/team.svg"
+            buttonColor="#E5CCFF"
+            isWhiteText={true}
           />
           <FeatureCard
             backgroundColor="#FFCF40"
             title={
               <>
-                Climb up to<br />
+                Climb up to
+                <br />
                 <span className="text-purple-600">Leaderboard</span>
               </>
             }
-            description="Monitor your project's growth with detailed analytics and insights to make data-driven decisions."
+            description="Gain likes and shares from users and climb up to leaderboard"
+            svgIcon="/ui/dot.svg"
+            mainIcon="/ui/rank.svg"
+            buttonColor="#FFEFC3"
           />
         </div>
       </section>
