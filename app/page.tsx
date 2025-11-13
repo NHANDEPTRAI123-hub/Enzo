@@ -259,9 +259,23 @@ const Page = () => {
               backgroundColor="#ECD9FF"
               customContent={
                 <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
-                  {/* Top left content */}
-                  <div className="flex flex-col gap-2">
-                    <p className="text-sm sm:text-base" style={{ color: "#575656" }}>
+                  {/* Globe icon - Behind text */}
+
+                  <div className=" absolute right-15 lg:right-27 flex items-center z-0 w-60 h-60 sm:w-60 sm:h-60 lg:w-80 lg:h-80">
+                    <Image
+                      src="/ui/globe.svg"
+                      alt="Globe"
+                      width={112}
+                      height={112}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Top left content - Above globe */}
+                  <div className="relative z-10 flex flex-col gap-2">
+                    <p
+                      style={{ color: "#575656" }}
+                    >
                       A knowledge base of methodology
                     </p>
                     <h3 className="font-bold text-black">
@@ -269,22 +283,12 @@ const Page = () => {
                     </h3>
                   </div>
 
-                  {/* Center left - Globe icon */}
-                  <div className="flex-1 flex items-center">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28">
-                      <Image
-                        src="/ui/globe.svg"
-                        alt="Globe"
-                        width={112}
-                        height={112}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
+                  {/* Spacer */}
+                  <div className="flex-1" />
 
                   {/* Bottom right - Button */}
-                  <div className="flex justify-end">
-                    <DocumentationButton 
+                  <div className="relative z-10 flex justify-end">
+                    <DocumentationButton
                       backgroundColor="#F2E5FF"
                       borderColor="#E6E1E1"
                     />
@@ -294,7 +298,7 @@ const Page = () => {
             />
           </AnimatedContent>
 
-          <AnimatedContent  
+          <AnimatedContent
             distance={50}
             direction="vertical"
             duration={0.6}
@@ -312,7 +316,7 @@ const Page = () => {
                   <div className="flex items-end justify-between gap-4 mt-8">
                     {/* Left side - Text content */}
                     <div className="flex flex-col gap-2">
-                      <p className="text-sm sm:text-base text-white">
+                      <p className=" text-white">
                         Teamwork prioritize
                       </p>
                       <h3 className="font-bold text-white">

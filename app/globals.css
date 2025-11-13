@@ -41,7 +41,7 @@ h3 {
 }
 
 p {
-  @apply text-lg font-poppins;
+  @apply text-sm sm:text-base lg:text-lg font-poppins;
   line-height: 1.5;
 }
 

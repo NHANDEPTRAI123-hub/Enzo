@@ -30,7 +30,7 @@ const Bento = ({
 }: BentoProps) => {
   return (
     <div
-      className={` relative sm:p-8 rounded-lg  overflow-hidden ${
+      className={` relative p-8 sm:p-8 rounded-lg  overflow-hidden ${
         isWhiteText ? "text-white" : ""
       }`}
       style={{ backgroundColor, borderRadius: "8px" }}
@@ -68,8 +68,7 @@ const Bento = ({
             alt="Guide icon"
             width={80}
             height={80}
-            style={{ width: "900px", height: "auto" }}
-            className="max-w-none"
+            className="max-w-none w-105 h-auto sm:w-100 sm:h-auto lg:w-200 lg:h-auto"
           />
         </div>
       )}
@@ -82,7 +81,7 @@ const Bento = ({
             alt="Center icon"
             width={200}
             height={200}
-            className="w-32 h-32 sm:w-40 sm:h-40 lg:w-80 lg:h-80 object-contain"
+            className="w-50 h-auto sm:w-50 sm:h-auto lg:w-80 lg:h-auto object-contain"
           />
         </div>
       )}

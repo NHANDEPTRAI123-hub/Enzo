@@ -37,7 +37,7 @@ const FeatureCard = ({
             alt="Decorative icon"
             width={120}
             height={120}
-            className="w-24 h-24 sm:w-36 sm:h-36"
+            className="w-30 h-auto sm:w-36 sm:h-36"
           />
         </div>
       )}
@@ -50,7 +50,7 @@ const FeatureCard = ({
             alt="Feature icon"
             width={48}
             height={48}
-            className="relative right-3 w-10 h-10 sm:w-25 sm:h-25"
+            className="relative right-2.5 w-20 h-auto sm:w-25 sm:h-25"
           />
         </div>
       )}
