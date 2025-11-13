@@ -1,0 +1,186 @@
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import Bento from './Bento';
+import DocumentationButton from './DocumentationButton';
+import ViewArticleButton from './ViewArticleButton';
+import SeeTutorialsButton from './SeeTutorialsButton';
+import AnimatedContent from './AnimatedContent';
+
+const GuideSection = () => {
+  return (
+    <section className="guide">
+      <h2 className="text-center">
+        All You Need{" "}
+        <span className="text-purple-600">To Get Started With Enzo</span>
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          duration={0.6}
+          delay={0.1}
+          className="sm:col-span-2 lg:col-span-3"
+        >
+          <Bento
+            backgroundColor="#FFCF40"
+            topSvgIcon="/ui/yellow-dots.svg"
+            mainSvgIcon="/ui/guide.svg"
+            customContent={
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Bottom content container */}
+                <div className="flex-1" />
+                <div className="flex items-end justify-between gap-4 mt-8">
+                  {/* Left side - Text content */}
+                  <div className="flex flex-col gap-2">
+                    <p className="sm:text-base" style={{ color: "#575656" }}>
+                      Guidance on Enzo
+                    </p>
+                    <h3 className="font-bold">Documentation</h3>
+                  </div>
+
+                  {/* Right side - Button */}
+                  <div className="shrink-0">
+                    <DocumentationButton />
+                  </div>
+                </div>
+              </div>
+            }
+          />
+        </AnimatedContent>
+
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          duration={0.6}
+          delay={0.2}
+          className="sm:col-span-1 lg:col-span-2"
+        >
+          <Bento
+            backgroundColor="#FFCF40"
+            backgroundImage="/ui/thumbnail.svg"
+            isWhiteText={true}
+            customContent={
+              <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[300px]">
+                {/* Top left content */}
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm sm:text-base text-white">
+                    All the how-to&apos;s
+                  </p>
+                  <h3 className="font-bold text-white">Tutorials</h3>
+                </div>
+
+                {/* Bottom content container */}
+                <div className="flex-1" />
+                <div className="flex items-end justify-between gap-4">
+                  {/* Bottom left - YouTube icon */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14">
+                    <Image
+                      src="/ui/youtube.svg"
+                      alt="YouTube"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Bottom right - Button */}
+                  <div className="shrink-0">
+                    <SeeTutorialsButton />
+                  </div>
+                </div>
+              </div>
+            }
+          />
+        </AnimatedContent>
+
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          duration={0.6}
+          delay={0.3}
+          className="sm:col-span-1 lg:col-span-2"
+        >
+          <Bento
+            backgroundColor="#ECD9FF"
+            customContent={
+              <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
+                {/* Globe icon - Behind text */}
+                <div className="absolute right-15 lg:right-27 flex items-center z-0 w-60 h-60 sm:w-60 sm:h-60 lg:w-80 lg:h-80">
+                  <Image
+                    src="/ui/globe.svg"
+                    alt="Globe"
+                    width={112}
+                    height={112}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* Top left content - Above globe */}
+                <div className="relative z-10 flex flex-col gap-2">
+                  <p style={{ color: "#575656" }}>
+                    A knowledge base of methodology
+                  </p>
+                  <h3 className="font-bold text-black">
+                    Project management concepts
+                  </h3>
+                </div>
+
+                {/* Spacer */}
+                <div className="flex-1" />
+
+                {/* Bottom right - Button */}
+                <div className="relative z-10 flex justify-end">
+                  <DocumentationButton
+                    backgroundColor="#F2E5FF"
+                    borderColor="#E6E1E1"
+                  />
+                </div>
+              </div>
+            }
+          />
+        </AnimatedContent>
+
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          duration={0.6}
+          delay={0.4}
+          className="sm:col-span-2 lg:col-span-3"
+        >
+          <Bento
+            backgroundColor="#7F00FF"
+            centerSvgIcon="/ui/partner.svg"
+            isWhiteText={true}
+            customContent={
+              <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
+                {/* Bottom content container */}
+                <div className="flex-1" />
+                <div className="flex items-end justify-between gap-4 mt-8">
+                  {/* Left side - Text content */}
+                  <div className="flex flex-col gap-2">
+                    <p className="text-white">
+                      Teamwork prioritize
+                    </p>
+                    <h3 className="font-bold text-white">
+                      Why teamwork is important
+                    </h3>
+                  </div>
+
+                  {/* Right side - Button */}
+                  <div className="shrink-0 mt-10">
+                    <ViewArticleButton />
+                  </div>
+                </div>
+              </div>
+            }
+          />
+        </AnimatedContent>
+      </div>
+    </section>
+  );
+};
+
+export default GuideSection;
