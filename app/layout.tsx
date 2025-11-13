@@ -12,6 +12,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Enzo",
   description: "Unleash your project's potential",
+   icons: {
+    icon: '/ui/enzo.svg', // or '/logo.svg', '/logo.png'
+    apple: '/apple-touch-icon.png', // Optional: for iOS devices
+  },
 };
 
 export default function RootLayout({

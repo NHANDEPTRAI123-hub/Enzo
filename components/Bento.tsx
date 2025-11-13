@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface BentoProps {
   title?: string;
@@ -12,26 +12,44 @@ interface BentoProps {
   customContent?: React.ReactNode;
   topSvgIcon?: string;
   mainSvgIcon?: string;
+  centerSvgIcon?: string;
+  backgroundImage?: string;
 }
 
-const Bento = ({ 
-  title, 
-  description, 
-  backgroundColor, 
-  icon, 
+const Bento = ({
+  title,
+  description,
+  backgroundColor,
+  icon,
   isWhiteText,
   customContent,
   topSvgIcon,
-  mainSvgIcon
+  mainSvgIcon,
+  centerSvgIcon,
+  backgroundImage,
 }: BentoProps) => {
   return (
     <div
-      className={` sm:p-8 rounded-lg  overflow-hidden ${isWhiteText ? 'text-white' : ''}`}
-      style={{ backgroundColor, borderRadius: '8px' }}
+      className={` relative sm:p-8 rounded-lg  overflow-hidden ${
+        isWhiteText ? "text-white" : ""
+      }`}
+      style={{ backgroundColor, borderRadius: "8px" }}
     >
+      {/* Background cover image */}
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={backgroundImage}
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
       {/* Top decorative SVG */}
       {topSvgIcon && (
-        <div className="absolute -top-4 -right-4 w-24 h-24 sm:w-100 sm:h-100">
+        <div className="absolute -top-28 left-1">
           <Image
             src={topSvgIcon}
             alt="Decorative pattern"
@@ -44,13 +62,27 @@ const Bento = ({
 
       {/* Main SVG icon with higher z-index */}
       {mainSvgIcon && (
-        <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 lg:w-80 lg:h-80 mb-2">
+        <div className="relative z-10 top-12  mb-15">
           <Image
             src={mainSvgIcon}
             alt="Guide icon"
             width={80}
             height={80}
-            className="w-full h-full object-contain"
+            style={{ width: "900px", height: "auto" }}
+            className="max-w-none"
+          />
+        </div>
+      )}
+
+      {/* Center SVG icon (for partner icon in middle of bento) */}
+      {centerSvgIcon && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src={centerSvgIcon}
+            alt="Center icon"
+            width={200}
+            height={200}
+            className="w-32 h-32 sm:w-40 sm:h-40 lg:w-80 lg:h-80 object-contain"
           />
         </div>
       )}

@@ -2,14 +2,24 @@
 
 import React from 'react';
 
-const DocumentationButton = () => {
+interface DocumentationButtonProps {
+  backgroundColor?: string;
+  borderColor?: string;
+  textColor?: string;
+}
+
+const DocumentationButton = ({ 
+  backgroundColor = '#FFEFC3',
+  borderColor = '#E6E1E1',
+  textColor = '#000000'
+}: DocumentationButtonProps) => {
   return (
     <button
       className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-medium text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-md"
       style={{ 
-        backgroundColor: '#FFEFC3',
-        border: '2px solid #E6E1E1',
-        color: '#000000'
+        backgroundColor,
+        border: `2px solid ${borderColor}`,
+        color: textColor
       }}
     >
       Go to Documentation

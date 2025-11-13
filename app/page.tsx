@@ -5,6 +5,8 @@ import TermsServiceButton from "@/components/TermsServiceButton";
 import FeatureCard from "@/components/FeatureCard";
 import Bento from "@/components/Bento";
 import DocumentationButton from "@/components/DocumentationButton";
+import ViewArticleButton from "@/components/ViewArticleButton";
+import SeeTutorialsButton from "@/components/SeeTutorialsButton";
 import Image from "next/image";
 import AnimatedContent from "../components/AnimatedContent";
 
@@ -166,7 +168,7 @@ const Page = () => {
           <span className="text-purple-600">To Get Started With Enzo</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
           <AnimatedContent
             distance={50}
             direction="vertical"
@@ -185,10 +187,7 @@ const Page = () => {
                   <div className="flex items-end justify-between gap-4 mt-8">
                     {/* Left side - Text content */}
                     <div className="flex flex-col gap-2">
-                      <p
-                        className="sm:text-base"
-                        style={{ color: "#575656" }}
-                      >
+                      <p className="sm:text-base" style={{ color: "#575656" }}>
                         Guidance on Enzo
                       </p>
                       <h3 className="font-bold">Documentation</h3>
@@ -209,12 +208,43 @@ const Page = () => {
             direction="vertical"
             duration={0.6}
             delay={0.2}
-            className="sm:col-span-1 lg:col-span-1"
+            className="sm:col-span-1 lg:col-span-2"
           >
             <Bento
-              title="Set Up Your Projects"
-              description="Organize your workflow with customizable boards, tasks, and team collaboration features."
               backgroundColor="#FFCF40"
+              backgroundImage="/ui/thumbnail.svg"
+              isWhiteText={true}
+              customContent={
+                <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[300px]">
+                  {/* Top left content */}
+                  <div className="flex flex-col gap-2">
+                    <p className="text-sm sm:text-base text-white">
+                      All the how-to&apos;s
+                    </p>
+                    <h3 className="font-bold text-white">Tutorials</h3>
+                  </div>
+
+                  {/* Bottom content container */}
+                  <div className="flex-1" />
+                  <div className="flex items-end justify-between gap-4">
+                    {/* Bottom left - YouTube icon */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14">
+                      <Image
+                        src="/ui/youtube.svg"
+                        alt="YouTube"
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+
+                    {/* Bottom right - Button */}
+                    <div className="shrink-0">
+                      <SeeTutorialsButton />
+                    </div>
+                  </div>
+                </div>
+              }
             />
           </AnimatedContent>
 
@@ -223,16 +253,48 @@ const Page = () => {
             direction="vertical"
             duration={0.6}
             delay={0.3}
-            className="sm:col-span-1 lg:col-span-1"
+            className="sm:col-span-1 lg:col-span-2"
           >
             <Bento
-              title="Invite Your Team"
-              description="Collaborate seamlessly by inviting team members and assigning roles and permissions."
-              backgroundColor="#FCD462"
+              backgroundColor="#ECD9FF"
+              customContent={
+                <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
+                  {/* Top left content */}
+                  <div className="flex flex-col gap-2">
+                    <p className="text-sm sm:text-base" style={{ color: "#575656" }}>
+                      A knowledge base of methodology
+                    </p>
+                    <h3 className="font-bold text-black">
+                      Project management concepts
+                    </h3>
+                  </div>
+
+                  {/* Center left - Globe icon */}
+                  <div className="flex-1 flex items-center">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28">
+                      <Image
+                        src="/ui/globe.svg"
+                        alt="Globe"
+                        width={112}
+                        height={112}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bottom right - Button */}
+                  <div className="flex justify-end">
+                    <DocumentationButton 
+                      backgroundColor="#F2E5FF"
+                      borderColor="#E6E1E1"
+                    />
+                  </div>
+                </div>
+              }
             />
           </AnimatedContent>
 
-          <AnimatedContent
+          <AnimatedContent  
             distance={50}
             direction="vertical"
             duration={0.6}
@@ -240,10 +302,31 @@ const Page = () => {
             className="sm:col-span-2 lg:col-span-3"
           >
             <Bento
-              title="Track Progress"
-              description="Monitor your project's progress with real-time updates, analytics, and performance insights."
               backgroundColor="#7F00FF"
+              centerSvgIcon="/ui/partner.svg"
               isWhiteText={true}
+              customContent={
+                <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
+                  {/* Bottom content container */}
+                  <div className="flex-1" />
+                  <div className="flex items-end justify-between gap-4 mt-8">
+                    {/* Left side - Text content */}
+                    <div className="flex flex-col gap-2">
+                      <p className="text-sm sm:text-base text-white">
+                        Teamwork prioritize
+                      </p>
+                      <h3 className="font-bold text-white">
+                        Why teamwork is important
+                      </h3>
+                    </div>
+
+                    {/* Right side - Button */}
+                    <div className="shrink-0 mt-10">
+                      <ViewArticleButton />
+                    </div>
+                  </div>
+                </div>
+              }
             />
           </AnimatedContent>
         </div>
