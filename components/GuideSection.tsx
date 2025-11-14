@@ -48,7 +48,7 @@ const GuideSection = () => {
                     >
                       Guidance on Enzo
                     </p>
-                    <h3 className="font-bold">Documentation</h3>
+                    <h3 className="font-bold text-black">Documentation</h3>
                   </div>
 
                   {/* Right side - Button */}
