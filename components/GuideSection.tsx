@@ -1,21 +1,28 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Bento from './Bento';
-import DocumentationButton from './DocumentationButton';
-import ViewArticleButton from './ViewArticleButton';
-import SeeTutorialsButton from './SeeTutorialsButton';
-import AnimatedContent from './AnimatedContent';
+import React from "react";
+import Image from "next/image";
+import Bento from "./Bento";
+import DocumentationButton from "./DocumentationButton";
+import ViewArticleButton from "./ViewArticleButton";
+import SeeTutorialsButton from "./SeeTutorialsButton";
+import AnimatedContent from "./AnimatedContent";
 
 const GuideSection = () => {
   return (
     <section className="guide">
-      <h2 className="text-center">
-        All You Need{" "}
-        <span className="text-purple-600">To Get Started With Enzo</span>
-      </h2>
-
+      <AnimatedContent
+        distance={50}
+        direction="vertical"
+        duration={0.6}
+        delay={0.1}
+        className="sm:col-span-2 lg:col-span-3"
+      >
+        <h2 className="text-center">
+          All You Need{" "}
+          <span className="text-purple-600">To Get Started With Enzo</span>
+        </h2>
+      </AnimatedContent>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
         <AnimatedContent
           distance={50}
@@ -35,7 +42,10 @@ const GuideSection = () => {
                 <div className="flex items-end justify-between gap-4 mt-8">
                   {/* Left side - Text content */}
                   <div className="flex flex-col gap-2">
-                    <p className="sm:text-base" style={{ color: "var(--text-gray)" }}>
+                    <p
+                      className="sm:text-base"
+                      style={{ color: "var(--text-gray)" }}
+                    >
                       Guidance on Enzo
                     </p>
                     <h3 className="font-bold">Documentation</h3>
@@ -63,7 +73,7 @@ const GuideSection = () => {
             backgroundImage="/ui/thumbnail.svg"
             isWhiteText={true}
             customContent={
-              <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[300px]">
+              <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[294px]">
                 {/* Top left content */}
                 <div className="flex flex-col gap-2">
                   <p className="text-sm sm:text-base text-white">
@@ -161,9 +171,7 @@ const GuideSection = () => {
                 <div className="flex items-end justify-between gap-4 mt-8">
                   {/* Left side - Text content */}
                   <div className="flex flex-col gap-2">
-                    <p className="text-white">
-                      Teamwork prioritize
-                    </p>
+                    <p className="text-white">Teamwork prioritize</p>
                     <h3 className="font-bold text-white">
                       Why teamwork is important
                     </h3>

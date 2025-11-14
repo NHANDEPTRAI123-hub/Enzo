@@ -19,7 +19,7 @@ const Page = () => {
             <span className="text-purple-600">Unleash</span> Your Project
             Potential With Enzo
           </h1>
-          <p>
+          <p className="text-black">
             <span className="sm:hidden">
               Empower young creators to transform ideas into successful projects
             </span>
