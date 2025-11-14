@@ -7,6 +7,7 @@ import TermsServiceButton from "@/components/TermsServiceButton";
 import FeatureCard from "@/components/FeatureCard";
 import GuideSection from "@/components/GuideSection";
 import TeamWorkSection from "@/components/TeamWorkSection";
+import Pacman from "@/components/Pacman";
 import Image from "next/image";
 import AnimatedContent from "../components/AnimatedContent";
 
@@ -164,6 +165,9 @@ const Page = () => {
 
       {/* TeamWork Section */}
       <TeamWorkSection />
+
+      {/* Pacman Section */}
+      <Pacman />
     </>
   );
 };

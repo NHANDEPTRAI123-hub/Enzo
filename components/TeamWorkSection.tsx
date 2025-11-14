@@ -22,10 +22,20 @@ const TeamWorkSection = () => {
       description:
         "With AI-powered task generation, you can effortlessly create tasks",
     },
+    {
+      id: 4,
+      title: "Real-time collaboration",
+      description: "Work together seamlessly with live updates and instant feedback",
+    },
+    {
+      id: 5,
+      title: "Personalized experience",
+      description: "Tailor your workspace to match your team's unique workflow and preferences",
+    },
   ];
 
   return (
-    <section className="flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <section className="relative flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
       {/* Header */}
       <h2 className="text-black flex items-center gap-1 sm:gap-3 flex-wrap">
         Teamwork is now both{" "}
@@ -66,14 +76,14 @@ const TeamWorkSection = () => {
         </div>
 
         {/* Right side - Timeline with items */}
-        <div className="flex-1 w-full flex flex-col items-center relative">
+        <div className="flex-1 w-full flex flex-col relative">
           {teamworkItems.map((item, index) => (
             <div
               key={item.id}
-              className="flex gap-6 sm:gap-8 lg:gap-10 relative"
+              className="flex gap-6 sm:gap-8 lg:gap-10 relative w-full"
             >
               {/* Timeline column */}
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center shrink-0">
                 {/* Dot */}
                 <div
                   className="w-4 h-4 sm:w-5 sm:h-5 rounded-full shrink-0 mt-1 mb-1 sm:mt-2 sm:mb-2"
