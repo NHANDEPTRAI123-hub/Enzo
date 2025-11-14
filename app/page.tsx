@@ -15,7 +15,7 @@ const Page = () => {
       <Navbar />
       <section className="hero">
         <div className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1">
-          <h1>
+          <h1 className="text-black">
             <span className="text-purple-600">Unleash</span> Your Project
             Potential With Enzo
           </h1>
@@ -59,7 +59,7 @@ const Page = () => {
           delay={0}
         >
           <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 mb-4 sm:mb-6 lg:mb-8">
-            <h2 className="text-left">
+            <h2 className="text-left text-black">
               Our <span className="text-purple-600">Interactive</span> Features
             </h2>
             <Image
@@ -86,7 +86,7 @@ const Page = () => {
             delay={0.1}
           >
             <FeatureCard
-              backgroundColor="#E5CCFF"
+              backgroundColor="var(--feature-card-purple)"
               title={
                 <>
                   Create & Manage
@@ -97,7 +97,7 @@ const Page = () => {
               description="Create and manage your project easily and funnily"
               svgIcon="/ui/circle.svg"
               mainIcon="/ui/book.svg"
-              buttonColor="#F2E5FF"
+              buttonColor="var(--feature-btn-purple)"
             />
           </AnimatedContent>
 
@@ -114,7 +114,7 @@ const Page = () => {
             delay={0.2}
           >
             <FeatureCard
-              backgroundColor="#7F00FF"
+              backgroundColor="var(--feature-card-purple-dark)"
               title={
                 <>
                   Share & Express
@@ -125,7 +125,7 @@ const Page = () => {
               description="Share and post your idea to people around the world"
               svgIcon="/ui/oval.svg"
               mainIcon="/ui/team.svg"
-              buttonColor="#E5CCFF"
+              buttonColor="var(--feature-btn-light-purple)"
               isWhiteText={true}
             />
           </AnimatedContent>
@@ -143,7 +143,7 @@ const Page = () => {
             delay={0.3}
           >
             <FeatureCard
-              backgroundColor="#FFCF40"
+              backgroundColor="var(--feature-card-yellow)"
               title={
                 <>
                   Climb up to
@@ -154,7 +154,7 @@ const Page = () => {
               description="Gain likes and shares from users and climb up to leaderboard"
               svgIcon="/ui/dot.svg"
               mainIcon="/ui/rank.svg"
-              buttonColor="#FFEFC3"
+              buttonColor="var(--feature-btn-yellow)"
             />
           </AnimatedContent>
         </div>

@@ -59,14 +59,14 @@ const FeatureCard = ({
 
       <h3
         className={`font-semibold leading-tight relative z-10 ${
-          isWhiteText ? "text-white" : ""
+          isWhiteText ? "text-white" : "text-black"
         }`}
       >
         {title}
       </h3>
       <p
         className={`text-sm sm:text-base relative z-10 grow ${
-          isWhiteText ? "text-white" : ""
+          isWhiteText ? "text-white" : "text-black"
         }`}
       >
         {description}

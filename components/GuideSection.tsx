@@ -25,7 +25,7 @@ const GuideSection = () => {
           className="sm:col-span-2 lg:col-span-3"
         >
           <Bento
-            backgroundColor="#FFCF40"
+            backgroundColor="var(--bento-yellow)"
             topSvgIcon="/ui/yellow-dots.svg"
             mainSvgIcon="/ui/guide.svg"
             customContent={
@@ -35,7 +35,7 @@ const GuideSection = () => {
                 <div className="flex items-end justify-between gap-4 mt-8">
                   {/* Left side - Text content */}
                   <div className="flex flex-col gap-2">
-                    <p className="sm:text-base" style={{ color: "#575656" }}>
+                    <p className="sm:text-base" style={{ color: "var(--text-gray)" }}>
                       Guidance on Enzo
                     </p>
                     <h3 className="font-bold">Documentation</h3>
@@ -59,7 +59,7 @@ const GuideSection = () => {
           className="sm:col-span-1 lg:col-span-2"
         >
           <Bento
-            backgroundColor="#FFCF40"
+            backgroundColor="var(--bento-yellow)"
             backgroundImage="/ui/thumbnail.svg"
             isWhiteText={true}
             customContent={
@@ -104,7 +104,7 @@ const GuideSection = () => {
           className="sm:col-span-1 lg:col-span-2"
         >
           <Bento
-            backgroundColor="#ECD9FF"
+            backgroundColor="var(--bento-purple-light)"
             customContent={
               <div className="relative z-10 flex flex-col h-full min-h-[250px] sm:min-h-[280px]">
                 {/* Globe icon - Behind text */}
@@ -120,7 +120,7 @@ const GuideSection = () => {
 
                 {/* Top left content - Above globe */}
                 <div className="relative z-10 flex flex-col gap-2">
-                  <p style={{ color: "#575656" }}>
+                  <p style={{ color: "var(--text-gray)" }}>
                     A knowledge base of methodology
                   </p>
                   <h3 className="font-bold text-black">
@@ -134,8 +134,8 @@ const GuideSection = () => {
                 {/* Bottom right - Button */}
                 <div className="relative z-10 flex justify-end">
                   <DocumentationButton
-                    backgroundColor="#F2E5FF"
-                    borderColor="#E6E1E1"
+                    backgroundColor="var(--btn-doc-bg-alt)"
+                    borderColor="var(--btn-doc-border)"
                   />
                 </div>
               </div>
@@ -151,7 +151,7 @@ const GuideSection = () => {
           className="sm:col-span-2 lg:col-span-3"
         >
           <Bento
-            backgroundColor="#7F00FF"
+            backgroundColor="var(--bento-purple-dark)"
             centerSvgIcon="/ui/partner.svg"
             isWhiteText={true}
             customContent={

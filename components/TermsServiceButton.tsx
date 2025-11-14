@@ -23,8 +23,7 @@ const TermsServiceButton = () => {
   return (
     <div className="flex gap-3 flex-col sm:flex-row">
       <button className="px-4 sm:px-6 py-2 sm:py-3 bg-white border-2 border-purple-600 text-purple-600 rounded-lg font-poppins font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center gap-2">
-        <span className="hidden sm:inline">Terms & Service</span>
-        <span className="sm:hidden">Terms</span>
+        <span>Terms & Service</span>
         <InfoIcon />
       </button>
     </div>
