@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Enzo",
-  description: "Unleash your project's potential",
+  title: "Enzo-Project Management for Young People with AI",
+  description: "Unleash your project's potential, manage tasks, and collaborate with ease using Enzo.",
    icons: {
     icon: '/ui/enzo.svg', // or '/logo.svg', '/logo.png'
     apple: '/apple-touch-icon.png', // Optional: for iOS devices
