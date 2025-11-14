@@ -18,7 +18,7 @@ const GuideSection = () => {
         delay={0.1}
         className="sm:col-span-2 lg:col-span-3"
       >
-        <h2 className="text-center">
+        <h2 className="text-center text-black">
           All You Need{" "}
           <span className="text-purple-600">To Get Started With Enzo</span>
         </h2>
