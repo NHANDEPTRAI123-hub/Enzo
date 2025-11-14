@@ -20,6 +20,9 @@
   --btn-article-bg: #FFFFFF;
   --btn-article-border: #E6E1E1;
   --btn-article-text: #000000;
+  --teamwork-dot: #7F00FF;
+  --teamwork-line: #F2E5FF;
+  --text-black: #000000;
 }
 
 @theme inline {
@@ -43,6 +46,9 @@
   --color-btn-article-bg: var(--btn-article-bg);
   --color-btn-article-border: var(--btn-article-border);
   --color-btn-article-text: var(--btn-article-text);
+  --color-teamwork-dot: var(--teamwork-dot);
+  --color-teamwork-line: var(--teamwork-line);
+  --color-text-black: var(--text-black);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,6 +56,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -111,6 +121,10 @@ p {
   color: #000000;
 }
 
+.no-dark-invert {
+  filter: invert(0) !important;
+}
+
 @layer components {
   .hero {
     @apply flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
@@ -122,5 +136,9 @@ p {
 
   .guide {
     @apply flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+  }
+
+  .teamwork {
+    @apply flex flex-col lg:flex-row items-center gap-8 lg:gap-12 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
   }
 }

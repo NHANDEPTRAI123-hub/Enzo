@@ -6,6 +6,7 @@ import GetStartedButton from "@/components/GetStartedButton";
 import TermsServiceButton from "@/components/TermsServiceButton";
 import FeatureCard from "@/components/FeatureCard";
 import GuideSection from "@/components/GuideSection";
+import TeamWorkSection from "@/components/TeamWorkSection";
 import Image from "next/image";
 import AnimatedContent from "../components/AnimatedContent";
 
@@ -40,7 +41,7 @@ const Page = () => {
             alt="Hero"
             width={800}
             height={600}
-            className="w-full h-auto"
+            className="w-full h-auto no-dark-invert"
           />
         </div>
       </section>
@@ -58,18 +59,16 @@ const Page = () => {
           threshold={0.1}
           delay={0}
         >
-          <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 mb-4 sm:mb-6 lg:mb-8">
-            <h2 className="text-left text-black">
-              Our <span className="text-purple-600">Interactive</span> Features
-            </h2>
+          <h2 className="text-left text-black flex items-center gap-2 sm:gap-3 flex-wrap mb-4 sm:mb-6 lg:mb-8">
+            Our <span className="text-purple-600">Interactive</span> Features
             <Image
               src="/ui/project.svg"
               alt="Project icon"
               width={60}
               height={60}
-              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12"
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-block"
             />
-          </div>
+          </h2>
         </AnimatedContent>
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-between">
@@ -162,6 +161,9 @@ const Page = () => {
 
       {/* Guide Section */}
       <GuideSection />
+
+      {/* TeamWork Section */}
+      <TeamWorkSection />
     </>
   );
 };
