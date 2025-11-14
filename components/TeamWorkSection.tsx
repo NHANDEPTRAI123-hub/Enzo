@@ -27,7 +27,7 @@ const TeamWorkSection = () => {
   return (
     <section className="flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
       {/* Header */}
-      <h2 className="text-black flex items-center gap-2 sm:gap-3 flex-wrap">
+      <h2 className="text-black flex items-center gap-1 sm:gap-3 flex-wrap">
         Teamwork is now both{" "}
         <span className="text-gold-600">Fun & Professional</span>
         <Image

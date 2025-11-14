@@ -60,12 +60,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: linear-gradient(180deg, #fbf6ff 36%, #ffffff 100%);
   color: var(--foreground);
   font-family: var(--font-poppins);
+  overflow-x: hidden;
 }
 
 h1 {
