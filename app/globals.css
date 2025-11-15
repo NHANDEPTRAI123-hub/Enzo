@@ -70,6 +70,7 @@ body {
   overflow-x: hidden;
   max-width: 1366px;
   margin: 0 auto;
+  padding-top: 80px;
 }
 
 h1 {
