@@ -60,14 +60,14 @@ const Page = () => {
           threshold={0.1}
           delay={0}
         >
-          <h2 className="text-left text-black flex items-center gap-1 sm:gap-3 flex-wrap mb-4 sm:mb-6 lg:mb-8">
+          <h2 className="text-left text-black flex items-center gap-2 sm:gap-3 flex-wrap">
             Our <span className="text-purple-600">Interactive</span> Features
             <Image
               src="/ui/project.svg"
               alt="Project icon"
               width={60}
               height={60}
-              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-block"
+              className="hidden sm:inline-block sm:w-10 sm:h-10 lg:w-12 lg:h-12"
             />
           </h2>
         </AnimatedContent>

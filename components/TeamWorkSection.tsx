@@ -25,29 +25,37 @@ const TeamWorkSection = () => {
     {
       id: 4,
       title: "Real-time collaboration",
-      description: "Work together seamlessly with live updates and instant feedback",
+      description:
+        "Work together seamlessly with live updates and instant feedback",
     },
     {
       id: 5,
       title: "Personalized experience",
-      description: "Tailor your workspace to match your team's unique workflow and preferences",
+      description:
+        "Tailor your workspace to match your team's unique workflow and preferences",
     },
   ];
 
   return (
     <section className="teamwork">
       {/* Header */}
-      <h2 className="text-black flex items-center gap-1 sm:gap-3 flex-wrap">
-        Teamwork is now both{" "}
-        <span className="text-purple-600">Fun & Professional</span>
-        <Image
-          src="/ui/fun.svg"
-          alt="Fun icon"
-          width={48}
-          height={48}
-          className="relative bottom-1 sm:bottom-2 w-10 h-10 sm:w-12 sm:h-12 lg:w-20 lg:h-20 inline-block"
-        />
-      </h2>
+      <AnimatedContent
+        distance={100}
+        direction="vertical"
+        reverse={false}
+        duration={0.8}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.1}
+        delay={0}
+      >
+        <h2 className=" text-black flex items-center gap-0 sm:gap-3 flex-wrap">
+          Teamwork is now both{" "}
+          <span className="text-purple-600">Fun & Professional</span>
+        </h2>
+      </AnimatedContent>
 
       {/* Content flex container */}
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -138,7 +146,9 @@ const TeamWorkSection = () => {
                     delay={0.9}
                     className="hidden sm:block"
                   >
-                    <p style={{ color: "var(--text-black)" }}>{item.description}</p>
+                    <p style={{ color: "var(--text-black)" }}>
+                      {item.description}
+                    </p>
                   </AnimatedContent>
                 </AnimatedContent>
               </div>

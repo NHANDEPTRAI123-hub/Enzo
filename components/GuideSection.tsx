@@ -22,10 +22,19 @@ const GuideSection = () => {
       >
         <h2 className="text-center text-black">
           All You Need{" "}
-          <span className="text-purple-600">To Get Started With Enzo</span>
+          <span className="text-purple-600 inline-flex items-center gap-1 flex-wrap justify-center">
+            To Get Started With Enz
+            <Image
+              src="/ui/spin.svg"
+              alt="O"
+              width={32}
+              height={32}
+              className="inline-block w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+            />
+          </span>
         </h2>
       </AnimatedContent>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <AnimatedContent
           distance={100}
           direction="vertical"
@@ -47,12 +56,12 @@ const GuideSection = () => {
                   {/* Left side - Text content */}
                   <div className="flex flex-col gap-2">
                     <p
-                      className="sm:text-base"
+                      className="hidden sm:block"
                       style={{ color: "var(--text-gray)" }}
                     >
                       Guidance on Enzo
                     </p>
-                    <h3 className="font-bold text-black">Documentation</h3>
+                    <h3 className="font-bold hidden sm:block text-black">Documentation</h3>
                   </div>
 
                   {/* Right side - Button */}

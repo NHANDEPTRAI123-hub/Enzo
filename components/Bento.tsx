@@ -49,7 +49,7 @@ const Bento = ({
 
       {/* Top decorative SVG */}
       {topSvgIcon && (
-        <div className="absolute -top-28 left-1">
+        <div className="absolute bottom-40 sm:bottom-50 left-1">
           <Image
             src={topSvgIcon}
             alt="Decorative pattern"
