@@ -45,7 +45,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
 
     const axis = direction === 'horizontal' ? 'x' : 'y';
     const offset = reverse ? -distance : distance;
-    const startPct = (1 - threshold) * 100;
+    const startPct = threshold * 100;
 
     gsap.set(el, {
       [axis]: offset,
@@ -63,7 +63,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       onComplete,
       scrollTrigger: {
         trigger: el,
-        start: `top ${startPct}%`,
+        start: `top ${100 - startPct}%`,
         toggleActions: 'play none none none',
         once: true
       }

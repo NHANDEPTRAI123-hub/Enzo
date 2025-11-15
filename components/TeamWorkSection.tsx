@@ -120,7 +120,7 @@ const TeamWorkSection = () => {
                   delay={0.2 + index * 0.1}
                 >
                   <h3
-                    className="font-bold mb-2  sm:mb-3"
+                    className="font-semibold mb-2  sm:mb-3"
                     style={{ color: "var(--text-black)" }}
                   >
                     {item.title}
