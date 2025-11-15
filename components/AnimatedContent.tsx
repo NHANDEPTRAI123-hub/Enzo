@@ -47,29 +47,39 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const offset = reverse ? -distance : distance;
     const startPct = threshold * 100;
 
-    gsap.set(el, {
-      [axis]: offset,
-      scale,
-      opacity: animateOpacity ? initialOpacity : 1
-    });
+    // Wait for images and layout to settle before initializing
+    const initAnimation = () => {
+      gsap.set(el, {
+        [axis]: offset,
+        scale,
+        opacity: animateOpacity ? initialOpacity : 1
+      });
 
-    gsap.to(el, {
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      duration,
-      ease,
-      delay,
-      onComplete,
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${100 - startPct}%`,
-        toggleActions: 'play none none none',
-        once: true
-      }
-    });
+      gsap.to(el, {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+        duration,
+        ease,
+        delay,
+        onComplete,
+        scrollTrigger: {
+          trigger: el,
+          start: `top ${100 - startPct}%`,
+          toggleActions: 'play none none none',
+          once: true
+        }
+      });
+    };
+
+    // Small delay to ensure DOM is ready and scroll position is restored
+    const timer = setTimeout(() => {
+      initAnimation();
+      ScrollTrigger.refresh();
+    }, 100);
 
     return () => {
+      clearTimeout(timer);
       ScrollTrigger.getAll().forEach(t => t.kill());
       gsap.killTweensOf(el);
     };
