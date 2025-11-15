@@ -15,7 +15,8 @@ const Page = () => {
   return (
     <>
       <Navbar />
-      <section className="hero">
+      <main>
+      <section className="hero" aria-label="Hero section">
         <div className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1">
           <h1 className="text-black text-center sm:text-left">
             <span className="text-purple-600">Unleash</span> Your Project
@@ -47,7 +48,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="features">
+      <section className="features" aria-label="Features section">
         <AnimatedContent
           distance={100}
           direction="vertical"
@@ -168,6 +169,7 @@ const Page = () => {
 
       {/* Pacman Section */}
       <Pacman />
+      </main>
     </>
   );
 };
