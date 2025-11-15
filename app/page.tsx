@@ -17,11 +17,11 @@ const Page = () => {
       <Navbar />
       <section className="hero">
         <div className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1">
-          <h1 className="text-black">
+          <h1 className="text-black text-center sm:text-left">
             <span className="text-purple-600">Unleash</span> Your Project
             Potential With Enzo
           </h1>
-          <p className="text-black">
+          <p className="text-black text-center sm:text-left">
             <span className="sm:hidden">
               Empower young creators to transform ideas into successful projects
             </span>

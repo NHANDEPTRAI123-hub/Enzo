@@ -35,11 +35,11 @@ const TeamWorkSection = () => {
   ];
 
   return (
-    <section className="relative flex flex-col gap-8 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <section className="teamwork">
       {/* Header */}
       <h2 className="text-black flex items-center gap-1 sm:gap-3 flex-wrap">
         Teamwork is now both{" "}
-        <span className="text-gold-600">Fun & Professional</span>
+        <span className="text-purple-600">Fun & Professional</span>
         <Image
           src="/ui/fun.svg"
           alt="Fun icon"
@@ -80,7 +80,7 @@ const TeamWorkSection = () => {
           {teamworkItems.map((item, index) => (
             <div
               key={item.id}
-              className="flex gap-6 sm:gap-8 lg:gap-10 relative w-full"
+              className="flex gap-6  sm:gap-8 lg:gap-10 relative w-full"
             >
               {/* Timeline column */}
               <div className="flex flex-col items-center shrink-0">
@@ -104,7 +104,7 @@ const TeamWorkSection = () => {
               {/* Content column */}
               <div
                 className={`flex-1 ${
-                  index < teamworkItems.length - 1 ? "pb-6 sm:pb-20" : ""
+                  index < teamworkItems.length - 1 ? "pb-0 sm:pb-20" : ""
                 }`}
               >
                 <AnimatedContent
@@ -120,7 +120,7 @@ const TeamWorkSection = () => {
                   delay={0.2 + index * 0.1}
                 >
                   <h3
-                    className="font-semibold mb-2  sm:mb-3"
+                    className="font-semibold mb-2 sm:mb-3"
                     style={{ color: "var(--text-black)" }}
                   >
                     {item.title}
@@ -136,6 +136,7 @@ const TeamWorkSection = () => {
                     scale={1}
                     threshold={0}
                     delay={0.9}
+                    className="hidden sm:block"
                   >
                     <p style={{ color: "var(--text-black)" }}>{item.description}</p>
                   </AnimatedContent>
