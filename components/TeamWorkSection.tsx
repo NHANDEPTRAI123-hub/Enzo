@@ -58,7 +58,7 @@ const TeamWorkSection = () => {
             direction="horizontal"
             reverse={true}
             duration={0.8}
-            ease="power3.in"
+            ease="power3.linear"
             initialOpacity={0}
             animateOpacity
             scale={1}
@@ -70,7 +70,7 @@ const TeamWorkSection = () => {
               alt="Teamwork Frame"
               width={500}
               height={500}
-              className="w-full h-auto max-w-md lg:w-100 lg:h-200"
+              className="w-100 h-auto  lg:w-100 lg:h-200"
             />
           </AnimatedContent>
         </div>
@@ -108,14 +108,14 @@ const TeamWorkSection = () => {
                 }`}
               >
                 <AnimatedContent
-                  distance={80}
+                  distance={100}
                   direction="horizontal"
                   reverse={false}
-                  duration={0.6}
+                  duration={0.8}
                   ease="power2.out"
                   initialOpacity={0}
                   animateOpacity
-                  scale={0.95}
+                  scale={1}
                   threshold={0.1}
                   delay={0.2 + index * 0.1}
                 >
@@ -125,20 +125,20 @@ const TeamWorkSection = () => {
                   >
                     {item.title}
                   </h3>
-                </AnimatedContent>
-                <AnimatedContent
-                  distance={80}
-                  direction="horizontal"
-                  reverse={false}
-                  duration={0.6}
-                  ease="power2.out"
-                  initialOpacity={0}
-                  animateOpacity
-                  scale={0.95}
-                  threshold={0.1}
-                  delay={0.3 + index * 0.1}
-                >
-                  <p style={{ color: "var(--text-black)" }}>{item.description}</p>
+                  <AnimatedContent
+                    distance={100}
+                    direction="horizontal"
+                    reverse={false}
+                    duration={0.6}
+                    ease="power2.out"
+                    initialOpacity={0}
+                    animateOpacity
+                    scale={1}
+                    threshold={0}
+                    delay={0.9}
+                  >
+                    <p style={{ color: "var(--text-black)" }}>{item.description}</p>
+                  </AnimatedContent>
                 </AnimatedContent>
               </div>
             </div>

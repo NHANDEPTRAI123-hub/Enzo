@@ -12,10 +12,12 @@ const GuideSection = () => {
   return (
     <section className="guide">
       <AnimatedContent
-        distance={50}
+        distance={100}
         direction="vertical"
-        duration={0.6}
-        delay={0.1}
+        duration={0.8}
+        delay={0}
+        scale={1}
+        threshold={0.1}
         className="sm:col-span-2 lg:col-span-3"
       >
         <h2 className="text-center text-black">
@@ -25,10 +27,12 @@ const GuideSection = () => {
       </AnimatedContent>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
         <AnimatedContent
-          distance={50}
+          distance={100}
           direction="vertical"
-          duration={0.6}
+          duration={0.8}
           delay={0.1}
+          scale={0.95}
+          threshold={0.1}
           className="sm:col-span-2 lg:col-span-3"
         >
           <Bento
@@ -62,10 +66,12 @@ const GuideSection = () => {
         </AnimatedContent>
 
         <AnimatedContent
-          distance={50}
+          distance={100}
           direction="vertical"
-          duration={0.6}
+          duration={0.8}
           delay={0.2}
+          scale={0.95}
+          threshold={0.1}
           className="sm:col-span-1 lg:col-span-2"
         >
           <Bento
@@ -107,10 +113,12 @@ const GuideSection = () => {
         </AnimatedContent>
 
         <AnimatedContent
-          distance={50}
+          distance={100}
           direction="vertical"
-          duration={0.6}
+          duration={0.8}
           delay={0.3}
+          scale={0.95}
+          threshold={0.1}
           className="sm:col-span-1 lg:col-span-2"
         >
           <Bento
@@ -154,10 +162,12 @@ const GuideSection = () => {
         </AnimatedContent>
 
         <AnimatedContent
-          distance={50}
+          distance={100}
           direction="vertical"
-          duration={0.6}
+          duration={0.8}
           delay={0.4}
+          scale={0.95}
+          threshold={0.1}
           className="sm:col-span-2 lg:col-span-3"
         >
           <Bento
