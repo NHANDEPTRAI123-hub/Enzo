@@ -1,19 +1,20 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'Project', href: '#' },
-  { label: 'Community', href: '#' },
-  { label: 'Leaderboard', href: '#' },
+  { label: "Home", href: "#" },
+  { label: "Project", href: "#" },
+  { label: "Community", href: "#" },
+  { label: "Leaderboard", href: "#" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,25 +35,44 @@ const Navbar = () => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm'
-          : 'bg-transparent border-b border-gray-200'
-      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
-      style={{ maxWidth: '1366px', margin: '0 auto' }}
+          ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
+          : "bg-transparent border-b border-gray-200"
+      } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      style={{ maxWidth: "1366px", margin: "0 auto" }}
     >
       {/* Logo */}
       <div className="shrink-0">
-        <Image src="/ui/logo.svg" alt="Enzo Logo" width={70} height={70} className="w-12 h-12 sm:w-14 sm:h-14 lg:w-[70px] lg:h-[70px]" />
+        <Image
+          src="/ui/logo.svg"
+          alt="Enzo Logo"
+          width={70}
+          height={70}
+          className="w-12 h-12 sm:w-14 sm:h-14 lg:w-[70px] lg:h-[70px]"
+        />
       </div>
 
-      {/* Navigation Links */}
+      {/* Navigation Links - Desktop */}
       <div className="hidden md:flex items-center gap-8 lg:gap-20">
         {navLinks.map((link) => (
           <a
@@ -65,14 +85,119 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Right Side Icons */}
-      <div className="flex items-center gap-2 sm:gap-4">
+      {/* Right Side - Desktop Icons */}
+      <div className="hidden md:flex items-center gap-2 sm:gap-4">
         <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors">
-          <Image src="/ui/language.svg" alt="Language" width={50} height={50} className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]" />
+          <Image
+            src="/ui/language.svg"
+            alt="Language"
+            width={50}
+            height={50}
+            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]"
+          />
         </button>
         <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors">
-          <Image src="/ui/mode.svg" alt="Theme Mode" width={50} height={50} className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]" />
+          <Image
+            src="/ui/mode.svg"
+            alt="Theme Mode"
+            width={50}
+            height={50}
+            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]"
+          />
         </button>
+      </div>
+
+      {/* Hamburger Button - Mobile */}
+      <button
+        onClick={toggleMobileMenu}
+        className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+      >
+        {isMobileMenuOpen ? (
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        )}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-9998 md:hidden"
+          onClick={toggleMobileMenu}
+        />
+      )}
+
+      {/* Mobile Menu Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[280px] bg-white z-9999 shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full p-6 pt-20">
+          {/* Navigation Links */}
+          <nav className="flex flex-col gap-6 mb-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={toggleMobileMenu}
+                className="text-lg font-poppins text-foreground hover:text-purple-600 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Divider */}
+          <div className="border-t border-gray-200 my-4" />
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-4">
+            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+              <Image
+                src="/ui/language.svg"
+                alt="Language"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+              <Image
+                src="/ui/mode.svg"
+                alt="Theme Mode"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );

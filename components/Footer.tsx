@@ -1,36 +1,34 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const footerLinks = {
   product: [
-    { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Documentation', href: '#docs' },
-    { label: 'Tutorials', href: '#tutorials' },
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Documentation", href: "#docs" },
+    { label: "Tutorials", href: "#tutorials" },
   ],
   company: [
-    { label: 'About Us', href: '#about' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Contact', href: '#contact' },
+    { label: "About Us", href: "#about" },
+    { label: "Blog", href: "#blog" },
+    { label: "Careers", href: "#careers" },
+    { label: "Contact", href: "#contact" },
   ],
   legal: [
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' },
-    { label: 'Cookie Policy', href: '#cookies' },
-    { label: 'Security', href: '#security' },
+    { label: "Privacy Policy", href: "#privacy" },
+    { label: "Terms of Service", href: "#terms" },
+    { label: "Cookie Policy", href: "#cookies" },
+    { label: "Security", href: "#security" },
   ],
   community: [
-    { label: 'Community', href: '#community' },
-    { label: 'Leaderboard', href: '#leaderboard' },
-    { label: 'Support', href: '#support' },
-    { label: 'Feedback', href: '#feedback' },
+    { label: "Community", href: "#community" },
+    { label: "Leaderboard", href: "#leaderboard" },
+    { label: "Support", href: "#support" },
+    { label: "Feedback", href: "#feedback" },
   ],
 };
-
-
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -42,19 +40,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-12 sm:mb-16">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-2">
-              <Image
-                src="/ui/logo.svg"
-                alt="Enzo Logo"
-                width={60}
-                height={60}
-                className="relative bottom-2 lg:w-20 lg:h-auto"
-              />
-            
-            <span className="text-xs sm:text-sm " style={{ color: 'var(--text-gray)' }}>
-              Empowering young creators to transform ideas into successful projects with AI-powered collaboration tools.
+            <Image
+              src="/ui/logo.svg"
+              alt="Enzo Logo"
+              width={60}
+              height={60}
+              className="relative bottom-2 lg:w-20 lg:h-auto"
+            />
+
+            <span
+              className="text-xs sm:text-sm "
+              style={{ color: "var(--text-gray)" }}
+            >
+              Empowering young creators to transform ideas into successful
+              projects with AI-powered collaboration tools.
             </span>
-            
-            
           </div>
 
           <div>
@@ -65,7 +65,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                    style={{ color: 'var(--text-gray)' }}
+                    style={{ color: "var(--text-gray)" }}
                   >
                     {link.label}
                   </a>
@@ -83,7 +83,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                    style={{ color: 'var(--text-gray)' }}
+                    style={{ color: "var(--text-gray)" }}
                   >
                     {link.label}
                   </a>
@@ -101,7 +101,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                    style={{ color: 'var(--text-gray)' }}
+                    style={{ color: "var(--text-gray)" }}
                   >
                     {link.label}
                   </a>
@@ -119,7 +119,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                    style={{ color: 'var(--text-gray)' }}
+                    style={{ color: "var(--text-gray)" }}
                   >
                     {link.label}
                   </a>
@@ -132,23 +132,26 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-xs sm:text-sm text-center sm:text-left" style={{ color: 'var(--text-gray)' }}>
+            <span
+              className="text-xs sm:text-sm text-center sm:text-left"
+              style={{ color: "var(--text-gray)" }}
+            >
               © {currentYear} Enzo. All rights reserved.
             </span>
-            
+
             <div className="flex items-center gap-6">
               <a
                 href="#"
                 className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                style={{ color: 'var(--text-gray)' }}
+                style={{ color: "var(--text-gray)" }}
               >
                 English
               </a>
-              <span style={{ color: 'var(--text-gray)' }}>•</span>
+              <span style={{ color: "var(--text-gray)" }}>•</span>
               <a
                 href="#"
                 className="text-xs sm:text-sm transition-colors hover:text-purple-600"
-                style={{ color: 'var(--text-gray)' }}
+                style={{ color: "var(--text-gray)" }}
               >
                 Status
               </a>

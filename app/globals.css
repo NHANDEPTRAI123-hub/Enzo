@@ -67,7 +67,7 @@ body {
   background: linear-gradient(180deg, #fbf6ff 36%, #ffffff 100%);
   color: var(--foreground);
   font-family: var(--font-poppins);
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   max-width: 1366px;
   margin: 0 auto;
   padding-top: 80px;
