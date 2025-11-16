@@ -154,4 +154,8 @@ p {
   .teamwork {
     @apply relative flex flex-col gap-6 lg:flex-col lg:gap-12 px-4 py-8 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
   }
+
+  .faq{
+    @apply relative flex flex-col gap-6 px-4 sm:px-6 lg:gap-12 lg:px-8 pt-12 sm:pt-16 lg:pt-20;
+  }
 }

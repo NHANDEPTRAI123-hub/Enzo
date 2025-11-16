@@ -8,6 +8,8 @@ import FeatureCard from "@/components/FeatureCard";
 import GuideSection from "@/components/GuideSection";
 import TeamWorkSection from "@/components/TeamWorkSection";
 import Pacman from "@/components/Pacman";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import AnimatedContent from "../components/AnimatedContent";
 
@@ -18,26 +20,61 @@ const Page = () => {
       <main>
       <section className="hero" aria-label="Hero section">
         <div className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1">
-          <h1 className="text-black text-center sm:text-left">
-            <span className="text-purple-600">Unleash</span> Your Project
-            Potential With Enzo
-          </h1>
-          <p className="text-black text-center sm:text-left">
-            <span className="sm:hidden">
-              Empower young creators to transform ideas into successful projects
-            </span>
-            <span className="hidden sm:inline">
-              Empower young creators to transform ideas into successful
-              projects. Collaborate, manage, and grow with our intuitive
-              platform designed for emerging talent
-            </span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-3">
-            <TermsServiceButton />
-            <GetStartedButton />
-          </div>
+          <AnimatedContent
+            distance={80}
+            direction="vertical"
+            duration={0.8}
+            delay={0}
+            threshold={0.1}
+          >
+            <h1 className="text-black text-center sm:text-left">
+              <span className="text-purple-600">Unleash</span> Your Project
+              Potential With Enzo
+            </h1>
+          </AnimatedContent>
+          
+          <AnimatedContent
+            distance={80}
+            direction="vertical"
+            duration={0.8}
+            delay={0.2}
+            threshold={0.1}
+          >
+            <p className="text-black text-center sm:text-left">
+              <span className="sm:hidden">
+                Empower young creators to transform ideas into successful projects
+              </span>
+              <span className="hidden sm:inline">
+                Empower young creators to transform ideas into successful
+                projects. Collaborate, manage, and grow with our intuitive
+                platform designed for emerging talent
+              </span>
+            </p>
+          </AnimatedContent>
+          
+          <AnimatedContent
+            distance={80}
+            direction="vertical"
+            duration={0.8}
+            delay={0.4}
+            threshold={0.1}
+          >
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-3">
+              <TermsServiceButton />
+              <GetStartedButton />
+            </div>
+          </AnimatedContent>
         </div>
-        <div className="flex-1 w-full">
+        
+        <AnimatedContent
+          distance={100}
+          direction="vertical"
+          reverse={false} 
+          duration={1}
+          delay={0.3}
+          threshold={0.1}
+          className="flex-1 w-full"
+        >
           <Image
             src="/ui/hero-img.svg"
             alt="Hero"
@@ -45,7 +82,7 @@ const Page = () => {
             height={600}
             className="w-full h-auto no-dark-invert"
           />
-        </div>
+        </AnimatedContent>
       </section>
 
       <section className="features" aria-label="Features section">
@@ -169,7 +206,13 @@ const Page = () => {
 
       {/* Pacman Section */}
       <Pacman />
+
+      {/* FAQ Section */}
+      <FAQ />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 };

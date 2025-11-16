@@ -69,10 +69,10 @@ const Pacman = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative flex items-center justify-start px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative flex items-center justify-start px-0 sm:px-0 lg:px-0 py-6 sm:py-16 lg:py-0"
     >
       <div 
-        className="relative right-20 sm:right-100 w-100 h-auto sm:w-100 sm:h-auto lg:w-300 lg:h-auto transition-transform duration-100 ease-linear"
+        className="relative right-32 sm:right-80 lg:right-105 w-100 h-auto sm:w-200 sm:h-auto lg:w-300 lg:h-auto transition-transform duration-100 ease-linear"
         style={{ 
           transform: `translateX(${translateX}%)`,
           willChange: 'transform'
