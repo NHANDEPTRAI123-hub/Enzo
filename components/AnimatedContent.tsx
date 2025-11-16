@@ -52,23 +52,29 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       [axis]: offset,
       scale,
       opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible'
+      visibility: 'visible',
+      willChange: 'transform, opacity'
     });
 
     // Animate when scroll trigger activates
-    gsap.to(el, {
+    const animation = gsap.to(el, {
       [axis]: 0,
       scale: 1,
       opacity: 1,
       duration,
       ease,
       delay,
-      onComplete,
+      onComplete: () => {
+        // Clear will-change after animation completes for better performance
+        gsap.set(el, { clearProps: 'willChange' });
+        if (onComplete) onComplete();
+      },
       scrollTrigger: {
         trigger: el,
         start: `top ${100 - startPct}%`,
         toggleActions: 'play none none none',
-        once: true
+        once: true,
+        invalidateOnRefresh: false
       }
     });
 
@@ -79,8 +85,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
 
     return () => {
       clearTimeout(timer);
-      ScrollTrigger.getAll().forEach(t => t.kill());
-      gsap.killTweensOf(el);
+      animation.kill();
+      if (animation.scrollTrigger) {
+        animation.scrollTrigger.kill();
+      }
     };
   }, [
     distance,
