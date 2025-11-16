@@ -12,6 +12,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import AnimatedContent from "../components/AnimatedContent";
+import StaggerAnimation from "../components/StaggerAnimation";
 
 const Page = () => {
   return (
@@ -19,52 +20,39 @@ const Page = () => {
       <Navbar />
       <main>
       <section className="hero" aria-label="Hero section">
-        <div className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1">
-          <AnimatedContent
-            distance={80}
-            direction="vertical"
-            duration={0.8}
-            delay={0}
-            threshold={0.1}
-          >
-            <h1 className="text-black text-center sm:text-left">
-              <span className="text-purple-600">Unleash</span> Your Project
-              Potential With Enzo
-            </h1>
-          </AnimatedContent>
+        <StaggerAnimation
+          items={[
+            { element: '.hero-title', delay: 0 },
+            { element: '.hero-text', delay: 0.2 },
+            { element: '.hero-buttons', delay: 0.4 }
+          ]}
+          distance={80}
+          direction="vertical"
+          duration={0.8}
+          threshold={0.1}
+          className="flex flex-col gap-3 sm:gap-3 lg:gap-4 flex-1"
+        >
+          <h1 className="hero-title text-black text-center sm:text-left" style={{ visibility: 'hidden' }}>
+            <span className="text-purple-600">Unleash</span> Your Project
+            Potential With Enzo
+          </h1>
           
-          <AnimatedContent
-            distance={80}
-            direction="vertical"
-            duration={0.8}
-            delay={0.2}
-            threshold={0.1}
-          >
-            <p className="text-black text-center sm:text-left">
-              <span className="sm:hidden">
-                Empower young creators to transform ideas into successful projects
-              </span>
-              <span className="hidden sm:inline">
-                Empower young creators to transform ideas into successful
-                projects. Collaborate, manage, and grow with our intuitive
-                platform designed for emerging talent
-              </span>
-            </p>
-          </AnimatedContent>
+          <p className="hero-text text-black text-center sm:text-left" style={{ visibility: 'hidden' }}>
+            <span className="sm:hidden">
+              Empower young creators to transform ideas into successful projects
+            </span>
+            <span className="hidden sm:inline">
+              Empower young creators to transform ideas into successful
+              projects. Collaborate, manage, and grow with our intuitive
+              platform designed for emerging talent
+            </span>
+          </p>
           
-          <AnimatedContent
-            distance={80}
-            direction="vertical"
-            duration={0.8}
-            delay={0.4}
-            threshold={0.1}
-          >
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-3">
-              <TermsServiceButton />
-              <GetStartedButton />
-            </div>
-          </AnimatedContent>
-        </div>
+          <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-3" style={{ visibility: 'hidden' }}>
+            <TermsServiceButton />
+            <GetStartedButton />
+          </div>
+        </StaggerAnimation>
         
         <AnimatedContent
           distance={100}
