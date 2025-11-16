@@ -50,7 +50,7 @@ const FeatureCard = ({
             alt="Feature icon"
             width={48}
             height={48}
-            className="relative right-2.5 w-20 h-auto sm:w-25 sm:h-25"
+            className="relative right-2.5 w-23 h-auto sm:w-25 sm:h-25"
           />
         </div>
       )}
