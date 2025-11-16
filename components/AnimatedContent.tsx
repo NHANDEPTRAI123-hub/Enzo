@@ -47,34 +47,33 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const offset = reverse ? -distance : distance;
     const startPct = threshold * 100;
 
-    // Wait for images and layout to settle before initializing
-    const initAnimation = () => {
-      gsap.set(el, {
-        [axis]: offset,
-        scale,
-        opacity: animateOpacity ? initialOpacity : 1
-      });
+    // Immediately set initial state to hide content
+    gsap.set(el, {
+      [axis]: offset,
+      scale,
+      opacity: animateOpacity ? initialOpacity : 1,
+      visibility: 'visible'
+    });
 
-      gsap.to(el, {
-        [axis]: 0,
-        scale: 1,
-        opacity: 1,
-        duration,
-        ease,
-        delay,
-        onComplete,
-        scrollTrigger: {
-          trigger: el,
-          start: `top ${100 - startPct}%`,
-          toggleActions: 'play none none none',
-          once: true
-        }
-      });
-    };
+    // Animate when scroll trigger activates
+    gsap.to(el, {
+      [axis]: 0,
+      scale: 1,
+      opacity: 1,
+      duration,
+      ease,
+      delay,
+      onComplete,
+      scrollTrigger: {
+        trigger: el,
+        start: `top ${100 - startPct}%`,
+        toggleActions: 'play none none none',
+        once: true
+      }
+    });
 
-    // Small delay to ensure DOM is ready and scroll position is restored
+    // Refresh after small delay for scroll restoration
     const timer = setTimeout(() => {
-      initAnimation();
       ScrollTrigger.refresh();
     }, 100);
 
@@ -97,7 +96,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     onComplete
   ]);
 
-  return <div ref={ref} className={className}>{children}</div>;
+  return <div ref={ref} className={`${className}`} style={{ visibility: 'hidden' }}>{children}</div>;
 };
 
 export default AnimatedContent;
