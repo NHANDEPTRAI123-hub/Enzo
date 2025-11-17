@@ -78,7 +78,7 @@ const Navbar = () => {
           <a
             key={link.label}
             href={link.href}
-            className="text-sm font-poppins text-foreground hover:text-purple-600 transition-colors"
+            className="text-sm text-black font-poppin hover:text-purple-600 transition-colors"
           >
             {link.label}
           </a>
@@ -187,7 +187,7 @@ const Navbar = () => {
                 key={link.label}
                 href={link.href}
                 onClick={toggleMobileMenu}
-                className="text-lg font-poppins text-foreground hover:text-purple-600 transition-colors"
+                className="text-lg font-poppins text-black hover:text-purple-600 transition-colors"
               >
                 {link.label}
               </a>
