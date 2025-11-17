@@ -68,7 +68,7 @@ const Navbar = () => {
           alt="Enzo Logo"
           width={70}
           height={70}
-          className="w-12 h-12 sm:w-14 sm:h-14 lg:w-[70px] lg:h-[70px]"
+          className="w-14 h-auto sm:w-14 sm:h-14 lg:w-[70px] lg:h-[70px]"
         />
       </div>
 
@@ -102,7 +102,7 @@ const Navbar = () => {
             alt="Theme Mode"
             width={50}
             height={50}
-            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]"
+            className="sm:w-10 sm:h-10 lg:w-[50px] lg:h-[50px]"
           />
         </button>
       </div>
@@ -117,7 +117,7 @@ const Navbar = () => {
           <svg
             className="w-6 h-6"
             fill="none"
-            stroke="currentColor"
+            stroke="var(--icon-black)"
             viewBox="0 0 24 24"
           >
             <path
@@ -131,7 +131,7 @@ const Navbar = () => {
           <svg
             className="w-6 h-6"
             fill="none"
-            stroke="currentColor"
+            stroke="var(--icon-black)"
             viewBox="0 0 24 24"
           >
             <path
@@ -147,20 +147,41 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-9998 md:hidden"
+          className="fixed inset-0 h-200 bg-black/50 z-9998 md:hidden"
           onClick={toggleMobileMenu}
         />
       )}
 
       {/* Mobile Menu Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-white z-9999 shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-200 w-45 bg-white/80 backdrop-blur-md z-9999 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full p-6 pt-20">
+        <div className="flex flex-col p-6 pt-20">
+          {/* Close Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="absolute top-5 right-3 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Close menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="var(--icon-black)"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
           {/* Navigation Links */}
-          <nav className="flex flex-col gap-6 mb-8">
+          <nav className="flex flex-col gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -173,27 +194,24 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Divider */}
-          <div className="border-t border-gray-200 my-4" />
-
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+          <div className="flex flex-col items-left gap-4 mt-8">
+            <button className="hover:bg-gray-100 rounded-lg transition-colors ">
               <Image
                 src="/ui/language.svg"
                 alt="Language"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-16 h-16"
               />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <button className="hover:bg-gray-100 rounded-lg transition-colors">
               <Image
                 src="/ui/mode.svg"
                 alt="Theme Mode"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-16 h-16"
               />
             </button>
           </div>

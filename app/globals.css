@@ -23,6 +23,7 @@
   --teamwork-dot: #7F00FF;
   --teamwork-line: #F2E5FF;
   --text-black: #000000;
+  --icon-black: #000000;
 }
 
 @theme inline {
@@ -49,6 +50,7 @@
   --color-teamwork-dot: var(--teamwork-dot);
   --color-teamwork-line: var(--teamwork-line);
   --color-text-black: var(--text-black);
+  --color-icon-black: var(--icon-black);
 }
 
 @media (prefers-color-scheme: dark) {
