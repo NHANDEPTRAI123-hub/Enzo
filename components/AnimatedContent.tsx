@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { useRef, useEffect, ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useRef, useEffect, ReactNode } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface AnimatedContentProps {
   children: ReactNode;
   distance?: number;
-  direction?: "vertical" | "horizontal";
+  direction?: 'vertical' | 'horizontal';
   reverse?: boolean;
   duration?: number;
   ease?: string | ((progress: number) => number);
@@ -17,7 +17,7 @@ interface AnimatedContentProps {
   animateOpacity?: boolean;
   scale?: number;
   threshold?: number;
-  delay?: number;
+  delay?  : number;
   onComplete?: () => void;
   className?: string;
 }
@@ -25,17 +25,17 @@ interface AnimatedContentProps {
 const AnimatedContent: React.FC<AnimatedContentProps> = ({
   children,
   distance = 100,
-  direction = "vertical",
+  direction = 'vertical',
   reverse = false,
   duration = 0.8,
-  ease = "power3.out",
+  ease = 'power3.out',
   initialOpacity = 0,
   animateOpacity = true,
   scale = 1,
   threshold = 0.1,
   delay = 0,
   onComplete,
-  className = "",
+  className = ''
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -43,7 +43,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const el = ref.current;
     if (!el) return;
 
-    const axis = direction === "horizontal" ? "x" : "y";
+    const axis = direction === 'horizontal' ? 'x' : 'y';
     const offset = reverse ? -distance : distance;
     const startPct = threshold * 100;
 
@@ -52,8 +52,8 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       [axis]: offset,
       scale,
       opacity: animateOpacity ? initialOpacity : 1,
-      visibility: "visible",
-      willChange: "transform, opacity",
+      visibility: 'visible',
+      willChange: 'transform, opacity'
     });
 
     // Animate when scroll trigger activates
@@ -66,16 +66,16 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       delay,
       onComplete: () => {
         // Clear will-change after animation completes for better performance
-        gsap.set(el, { clearProps: "willChange" });
+        gsap.set(el, { clearProps: 'willChange' });
         if (onComplete) onComplete();
       },
       scrollTrigger: {
         trigger: el,
         start: `top ${100 - startPct}%`,
-        toggleActions: "play none none none",
+        toggleActions: 'play none none none',
         once: true,
-        invalidateOnRefresh: false,
-      },
+        invalidateOnRefresh: false
+      }
     });
 
     // Refresh after small delay for scroll restoration
@@ -101,14 +101,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     scale,
     threshold,
     delay,
-    onComplete,
+    onComplete
   ]);
 
-  return (
-    <div ref={ref} className={`${className}`} style={{ visibility: "hidden" }}>
-      {children}
-    </div>
-  );
+  return <div ref={ref} className={`${className}`} style={{ visibility: 'hidden' }}>{children}</div>;
 };
 
 export default AnimatedContent;

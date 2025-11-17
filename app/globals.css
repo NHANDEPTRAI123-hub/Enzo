@@ -59,19 +59,18 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
   background: linear-gradient(180deg, #fbf6ff 36%, #ffffff 100%);
   color: var(--foreground);
+  scroll-behavior: smooth!important;
   font-family: var(--font-poppins);
-  overflow-x: hidden !important;
+  overflow-x: hidden!important;
   max-width: 1366px;
   margin: 0 auto;
   padding-top: 80px;
-  transform: translateZ(0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

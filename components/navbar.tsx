@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Project", href: "#" },
+  { label: "Project", href: "/project" },
   { label: "Community", href: "#" },
   { label: "Leaderboard", href: "#" },
 ];
@@ -21,10 +21,10 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
 
       // Check if scrolled from top
-      setIsScrolled(currentScrollY > 10);
+      setIsScrolled(currentScrollY > 1);
 
       // Show/hide navbar based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > 1) {
         // Scrolling down
         setIsVisible(false);
       } else {
