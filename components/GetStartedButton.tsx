@@ -23,8 +23,15 @@ const ArrowIcon = () => (
 );
 
 const GetStartedButton = () => {
+  const handleClick = () => {
+    window.location.href = '/auth';
+  };
+
   return (
-    <button className="px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 text-white rounded-lg font-poppins font-semibold shadow-[inset_0_-2px_6px_rgba(0,0,0,0.2)] hover:bg-purple-700 transition-colors flex items-center justify-center gap-2">
+    <button 
+      onClick={handleClick}
+      className="px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 text-white rounded-lg font-poppins font-semibold shadow-[inset_0_-2px_6px_rgba(0,0,0,0.2)] hover:bg-purple-700 transition-colors flex items-center justify-center gap-2"
+    >
       <span>Get Started</span>
       <ArrowIcon />
     </button>

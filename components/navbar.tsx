@@ -4,19 +4,25 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   { label: "Project", href: "/project" },
   { label: "Community", href: "#" },
   { label: "Leaderboard", href: "#" },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  isProjectPage?: boolean;
+}
+
+const Navbar = ({ isProjectPage = false }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (isProjectPage) return; // Disable scroll animations on project page
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -37,7 +43,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isProjectPage]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -54,11 +60,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300 ${
-        isScrolled
+      className={`${
+        isProjectPage ? "static" : "fixed top-0 left-0 right-0"
+      } z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300 ${
+        isProjectPage
+          ? "bg-transparent border-b border-gray-200"
+          : isScrolled
           ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
           : "bg-transparent border-b border-gray-200"
-      } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      } ${isProjectPage || isVisible ? "translate-y-0" : "-translate-y-full"}`}
       style={{ maxWidth: "1366px", margin: "0 auto" }}
     >
       {/* Logo */}
