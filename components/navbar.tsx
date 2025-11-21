@@ -62,7 +62,7 @@ const Navbar = ({ isProjectPage = false }: NavbarProps) => {
     <nav
       className={`${
         isProjectPage ? "static" : "fixed top-0 left-0 right-0"
-      } z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300 ${
+      } z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1 transition-all duration-300 ${
         isProjectPage
           ? "bg-transparent border-b border-gray-200"
           : isScrolled

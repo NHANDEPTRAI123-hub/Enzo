@@ -9,7 +9,7 @@ interface CreateProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (projectData: { 
-    name: string; 
+    title: string; 
     description: string;
     deadline?: string;
     assignees?: string[];
@@ -48,7 +48,7 @@ export default function CreateProjectModal({ isOpen, onClose, onSubmit }: Create
 
     try {
       await onSubmit({ 
-        name: projectName, 
+        title: projectName, 
         description: projectDescription,
         deadline,
         assignees
@@ -57,6 +57,7 @@ export default function CreateProjectModal({ isOpen, onClose, onSubmit }: Create
       setProjectDescription('');
       setDeadline('');
       setAssignees([]);
+      setAssigneeEmail('');
       onClose();
     } catch (error) {
       console.error('Error creating project:', error);
